@@ -1,0 +1,581 @@
+/* Font Face */
+@font-face {
+    font-family: 'Bubblegum Sans';
+    src: url('../fonts/BubblegumSans-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* CSS Reset & Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #5bc0de;
+    --secondary-color: #f0a830;
+    --dark-color: #2c1810;
+    --light-color: #f5f5f5;
+    --accent-color: #e74c3c;
+}
+
+body {
+    font-family: 'Bubblegum Sans', 'Comic Sans MS', cursive, sans-serif;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #1a1a2e 100%);
+    color: var(--light-color);
+    min-height: 100vh;
+    line-height: 1.6;
+}
+
+/* Header & Navigation */
+header {
+    background: rgba(0, 0, 0, 0.3);
+    padding: 1rem 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: blur(10px);
+}
+
+nav {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-logo img {
+    height: 50px;
+    image-rendering: pixelated;
+    transition: transform 0.3s ease;
+}
+
+.nav-logo:hover img {
+    transform: scale(1.1);
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+nav a {
+    color: var(--light-color);
+    text-decoration: none;
+    font-size: 1.2rem;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: var(--primary-color);
+}
+
+/* Footer */
+footer {
+    background: rgba(0, 0, 0, 0.4);
+    padding: 2rem;
+    text-align: center;
+    margin-top: 4rem;
+}
+
+.footer-logo {
+    height: 60px;
+    image-rendering: pixelated;
+    margin-bottom: 1rem;
+}
+
+footer p {
+    opacity: 0.7;
+}
+
+/* Poultry Pop Hero */
+.poultry-hero {
+    background: linear-gradient(180deg, #87CEEB 0%, #98D8E8 100%);
+    padding: 4rem 2rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.poultry-hero h1 {
+    font-size: 3.5rem;
+    color: var(--dark-color);
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 0 #fff;
+}
+
+.poultry-hero .game-logo {
+    width: 150px;
+    image-rendering: pixelated;
+    margin-bottom: 1rem;
+}
+
+.poultry-hero .tagline {
+    color: var(--dark-color);
+    font-size: 1.3rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.flying-birds {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 0;
+}
+
+.poultry-hero .game-logo,
+.poultry-hero h1,
+.poultry-hero .tagline {
+    position: relative;
+    z-index: 1;
+}
+
+.hero-sparrow {
+    position: absolute;
+    width: 48px;
+    height: 32px;
+    background: url('../images/sparrow_flying.png') no-repeat;
+    background-size: 192px 32px;
+    image-rendering: pixelated;
+    right: -100px;
+    animation: sparrowFly 0.4s steps(4) infinite, flyAcross 6s linear infinite;
+}
+
+.hero-sparrow.sparrow-1 {
+    top: 20%;
+    transform: scale(1.5);
+    animation: sparrowFly 0.4s steps(4) infinite, flyAcross 6s linear infinite;
+}
+
+.hero-sparrow.sparrow-2 {
+    top: 50%;
+    transform: scale(1.2);
+    animation: sparrowFly 0.4s steps(4) infinite, flyAcross 8s linear infinite;
+    animation-delay: 0s, 2s;
+}
+
+.hero-sparrow.sparrow-3 {
+    top: 75%;
+    transform: scale(1);
+    animation: sparrowFly 0.4s steps(4) infinite, flyAcross 5s linear infinite;
+    animation-delay: 0s, 4s;
+}
+
+@keyframes flyAcross {
+    0% {
+        right: -100px;
+        opacity: 0;
+    }
+    5% {
+        opacity: 1;
+    }
+    95% {
+        opacity: 1;
+    }
+    100% {
+        right: 110%;
+        opacity: 0;
+    }
+}
+
+/* Game Description */
+.game-description {
+    padding: 4rem 2rem;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.game-description h2 {
+    font-size: 2.5rem;
+    color: var(--secondary-color);
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.game-description p {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+/* Features Section */
+.features {
+    background: rgba(0, 0, 0, 0.2);
+    padding: 4rem 2rem;
+}
+
+.features h2 {
+    font-size: 2.5rem;
+    color: var(--secondary-color);
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.feature-item {
+    background: linear-gradient(145deg, #8b6914, #a67c00);
+    border: 3px solid #5c4a1f;
+    border-radius: 12px;
+    padding: 1.5rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.feature-item .icon-container {
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+.feature-item img {
+    width: 60px;
+    image-rendering: pixelated;
+}
+
+.feature-item h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.feature-item p {
+    opacity: 0.9;
+}
+
+/* Feature Sparrow Sprite - animated flying */
+.feature-sparrow-sprite {
+    width: 48px;
+    height: 32px;
+    background: url('../images/sparrow_flying.png') no-repeat;
+    background-size: 192px 32px;
+    image-rendering: pixelated;
+    transform: scale(1.5);
+    transform-origin: center center;
+    animation: sparrowFly 0.4s steps(4) infinite;
+}
+
+/* Balloon Stack in Features */
+.balloon-stack {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    margin-bottom: 1rem;
+}
+
+.balloon-stack img {
+    width: 35px;
+    image-rendering: pixelated;
+    animation: bob 2s ease-in-out infinite;
+}
+
+.balloon-stack img:nth-child(1) { animation-delay: 0s; }
+.balloon-stack img:nth-child(2) { animation-delay: 0.2s; }
+.balloon-stack img:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes bob {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+/* Yoyo styling */
+.feature-item img[alt="Yoyo"] {
+    width: 80px;
+}
+
+/* Character Showcase */
+.character-showcase {
+    padding: 4rem 2rem;
+    text-align: center;
+}
+
+.character-showcase h2 {
+    font-size: 2.5rem;
+    color: var(--secondary-color);
+    margin-bottom: 2rem;
+}
+
+.character-display {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.character-display img {
+    image-rendering: pixelated;
+}
+
+/* Player Container - holds animated player and static label */
+.player-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.player-container p,
+.enemy-display p {
+    font-size: 1.3rem;
+}
+
+.player-container p {
+    color: var(--primary-color);
+}
+
+/* Player with Balloons Display */
+.player-with-balloons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    animation: playerFloat 3s ease-in-out infinite;
+}
+
+.player-balloons {
+    display: flex;
+    gap: 5px;
+    margin-bottom: -10px;
+}
+
+.player-balloons img {
+    width: 25px;
+    image-rendering: pixelated;
+}
+
+.player-balloons .balloon-left {
+    transform: rotate(-20deg) translateX(20px) translateY(10px);
+    z-index: 1;
+}
+
+.player-balloons .balloon-center {
+    z-index: 2;
+}
+
+.player-balloons .balloon-right {
+    transform: rotate(20deg) translateX(-20px) translateY(10px);
+    z-index: 3;
+}
+
+/* Player Sprite - showing idle frame (2nd row, 1st frame) */
+.player-sprite {
+    width: 37px;
+    height: 64px;
+    background: url('../images/player_spritesheet.png') no-repeat;
+    background-position: 0 -64px;
+    background-size: 111px 128px;
+    image-rendering: pixelated;
+    position: relative;
+    z-index: 4;
+}
+
+@keyframes playerFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+/* VS Display */
+.vs-display {
+    font-size: 3rem;
+    color: var(--accent-color);
+    text-shadow: 2px 2px 0 #000;
+    animation: pulse 1.5s ease-in-out infinite;
+    align-self: center;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+/* Enemy Display */
+.enemy-display {
+    text-align: center;
+}
+
+/* Sparrow Sprite - animated flying (4 frames in 1 row) */
+.sparrow-sprite {
+    width: 48px;
+    height: 32px;
+    background: url('../images/sparrow_flying.png') no-repeat;
+    background-size: 192px 32px;
+    image-rendering: pixelated;
+    transform: scale(1.5) translateX(5px) translateY(-40px);
+    transform-origin: center center;
+    animation: sparrowFly 0.4s steps(4) infinite, flyEnemy 2s ease-in-out infinite;
+}
+
+@keyframes sparrowFly {
+    from { background-position: 0 0; }
+    to { background-position: -192px 0; }
+}
+
+.enemy-display p {
+    color: var(--accent-color);
+}
+
+@keyframes flyEnemy {
+    0%, 100% { transform: scale(1.5) translateX(5px) translateY(-30px); }
+    50% { transform: scale(1.5) translateX(10px) translateY(-30px); }
+}
+
+/* Download Section */
+.download-section {
+    background: rgba(0, 0, 0, 0.2);
+    padding: 4rem 2rem;
+    text-align: center;
+}
+
+.download-section h2 {
+    font-size: 2.5rem;
+    color: var(--secondary-color);
+    margin-bottom: 1rem;
+}
+
+.coming-soon-text {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    margin-bottom: 2rem;
+    animation: glow 2s ease-in-out infinite;
+}
+
+@keyframes glow {
+    0%, 100% { text-shadow: 0 0 5px var(--primary-color); }
+    50% { text-shadow: 0 0 20px var(--primary-color), 0 0 30px var(--primary-color); }
+}
+
+.store-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.store-button {
+    display: block;
+    background: linear-gradient(145deg, #333, #1a1a1a);
+    border: 2px solid #444;
+    border-radius: 12px;
+    padding: 1rem 1.5rem;
+    text-decoration: none;
+    color: var(--light-color);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    min-width: 200px;
+}
+
+.store-button.disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+.store-button:not(.disabled):hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+}
+
+.store-button-content {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.store-icon {
+    width: 40px;
+    height: 40px;
+}
+
+.store-text {
+    text-align: left;
+}
+
+.store-label {
+    display: block;
+    font-size: 0.8rem;
+    opacity: 0.8;
+}
+
+.store-name {
+    display: block;
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+
+/* Back Section */
+.back-section {
+    padding: 2rem;
+    text-align: center;
+}
+
+.back-link {
+    display: inline-block;
+    margin-top: 2rem;
+    padding: 1rem 2rem;
+    background: var(--secondary-color);
+    color: var(--dark-color);
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 1.2rem;
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.back-link:hover {
+    transform: scale(1.05);
+    background: #c99028;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    nav ul {
+        gap: 1rem;
+    }
+
+    nav a {
+        font-size: 1rem;
+    }
+
+    .poultry-hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .character-display {
+        flex-direction: column;
+    }
+
+    .vs-display {
+        font-size: 2rem;
+    }
+
+    .player-balloons img {
+        width: 20px;
+    }
+
+    .sparrow-sprite {
+        transform: scale(1.2) translateX(5px);
+    }
+
+    .enemy-display p {
+        margin-top: 0.75rem;
+    }
+
+    .store-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+}
