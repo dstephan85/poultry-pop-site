@@ -555,23 +555,35 @@ footer p {
     }
 
     .character-display {
-        flex-direction: column;
+        flex-direction: row;
+        gap: 1rem;
+        flex-wrap: nowrap;
     }
 
     .vs-display {
-        font-size: 2rem;
+        font-size: 1.5rem;
     }
 
     .player-balloons img {
-        width: 20px;
+        width: 18px;
+    }
+
+    .player-sprite {
+        transform: scale(0.8);
     }
 
     .sparrow-sprite {
-        transform: scale(1.2) translateX(5px);
+        transform: scale(1) translateX(5px) translateY(-30px);
     }
 
+    .player-container p,
     .enemy-display p {
-        margin-top: 0.75rem;
+        font-size: 1rem;
+    }
+
+    @keyframes flyEnemy {
+        0%, 100% { transform: scale(1) translateX(5px) translateY(-25px); }
+        50% { transform: scale(1) translateX(10px) translateY(-25px); }
     }
 
     .store-buttons {
